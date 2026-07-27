@@ -18,7 +18,8 @@ export default function ReportsPage() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    fetch("/api/reports/list", { cache: "no-store" })
+    const timestamp = Date.now();
+    fetch(`/api/reports/list?t=${timestamp}`, { cache: "no-store" })
       .then((res) => {
         if (!res.ok) throw new Error("خطا در دریافت گزارش‌ها");
         return res.json();
