@@ -8,17 +8,21 @@ export async function GET() {
     const supabase = getSupabase();
     const { data, error } = await supabase
       .from("reports")
-      .select("id, report_date, is_processed, created_at")
-      .order("report_date", { ascending: false });
+      .select("id, report_date, is_processed, created_at");
 
     if (error) {
       return NextResponse.json({ error: error.message }, { status: 500 });
     }
 
-    const response = NextResponse.json({ reports: data || [] });
-    response.headers.set("Cache-Control", "no-store, no-cache, must-revalidate, max-age=0");
-    response.headers.set("Pragma", "no-cache");
-    response.headers.set("Expires", "0");
+    const sorted = (data || []).sort(
+      (a, b) => b.report_date.localeCompare(a.report_date)
+    );
+
+    const response = NextResponse.json({ reports: sorted });
+    response.headers.set(
+      "Cache-Control",
+      "no-store, no-cache, must-revalidate, max-age=0"
+    );
     return response;
   } catch (err: unknown) {
     const message = err instanceof Error ? err.message : "Unknown error";
