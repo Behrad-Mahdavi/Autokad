@@ -19,6 +19,19 @@ export async function POST(request: NextRequest) {
 
   const supabase = getSupabase();
 
+  const { data: existing } = await supabase
+    .from("reports")
+    .select("id")
+    .eq("report_date", report_date)
+    .single();
+
+  if (!existing) {
+    return NextResponse.json(
+      { error: `No report found for date: ${report_date}. Admin must submit raw report first.` },
+      { status: 404 }
+    );
+  }
+
   const { error } = await supabase
     .from("reports")
     .update({
