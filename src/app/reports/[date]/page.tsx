@@ -52,7 +52,7 @@ export default function ReportDetailPage() {
 
   useEffect(() => {
     if (!date) return;
-    fetch(`/api/reports/${encodeURIComponent(date)}`)
+    fetch(`/api/reports/${encodeURIComponent(date)}`, { cache: "no-store" })
       .then((res) => {
         if (!res.ok) throw new Error("گزارش یافت نشد");
         return res.json();
