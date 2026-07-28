@@ -13,7 +13,7 @@ const config: Config = {
         foreground: "var(--foreground)",
       },
       fontFamily: {
-        vazir: ["var(--font-vazirmatn)", "sans-serif"],
+        sans: ['IRANSansX', 'Vazirmatn', 'sans-serif'],
       },
     },
   },

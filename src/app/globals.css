@@ -2,7 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@font-face { font-family: 'IRANSansX'; src: url('/fonts/IRANSansXFaNum-ThinD4.ttf') format('truetype'); font-weight: 100; }
+@font-face { font-family: 'IRANSansX'; src: url('/fonts/IRANSansXFaNum-UltraLightD4.ttf') format('truetype'); font-weight: 200; }
+@font-face { font-family: 'IRANSansX'; src: url('/fonts/IRANSansXFaNum-LightD4.ttf') format('truetype'); font-weight: 300; }
+@font-face { font-family: 'IRANSansX'; src: url('/fonts/IRANSansXFaNum-RegularD4.ttf') format('truetype'); font-weight: 400; }
+@font-face { font-family: 'IRANSansX'; src: url('/fonts/IRANSansXFaNum-MediumD4.ttf') format('truetype'); font-weight: 500; }
+@font-face { font-family: 'IRANSansX'; src: url('/fonts/IRANSansXFaNum-DemiBoldD4.ttf') format('truetype'); font-weight: 600; }
+@font-face { font-family: 'IRANSansX'; src: url('/fonts/IRANSansXFaNum-BoldD4.ttf') format('truetype'); font-weight: 700; }
+@font-face { font-family: 'IRANSansX'; src: url('/fonts/IRANSansXFaNum-ExtraBoldD4.ttf') format('truetype'); font-weight: 800; }
+@font-face { font-family: 'IRANSansX'; src: url('/fonts/IRANSansXFaNum-HeavyD4.ttf') format('truetype'); font-weight: 900; }
+@font-face { font-family: 'IRANSansX'; src: url('/fonts/IRANSansXFaNum-BlackD4.ttf') format('truetype'); font-weight: 900; }
+@font-face { font-family: 'IRANSansX'; src: url('/fonts/IRANSansXFaNum-ExtraBlackD4.ttf') format('truetype'); font-weight: 950; }
 
 :root {
   --background: #f8fafc;
@@ -18,7 +28,7 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: "Vazirmatn", sans-serif;
+  font-family: 'IRANSansX', 'Vazirmatn', sans-serif;
   direction: rtl;
   text-align: right;
 }
