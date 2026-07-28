@@ -40,17 +40,17 @@ export default function AdminPage() {
 
   return (
     <div className="max-w-2xl mx-auto">
-      <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-8">
+      <div className="bg-surface rounded-xl border border-border shadow-sm p-8">
         <div className="flex items-center gap-3 mb-6">
-          <CalendarDays className="w-6 h-6 text-blue-600" />
-          <h2 className="text-xl font-bold text-slate-800">
+          <CalendarDays className="w-6 h-6 text-action" />
+          <h2 className="text-xl font-bold text-text-default">
             ثبت گزارش روزانه
           </h2>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-5">
           <div>
-            <label className="block text-sm font-medium text-slate-700 mb-1.5">
+            <label className="block text-sm font-medium text-text-subtle mb-1.5">
               تاریخ گزارش
             </label>
             <input
@@ -58,13 +58,13 @@ export default function AdminPage() {
               value={date}
               onChange={(e) => setDate(e.target.value)}
               placeholder="مثلاً: 1405-05-05 یا 2026-07-27"
-              className="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
+              className="w-full px-4 py-2.5 rounded-lg bg-surface-2 border border-border-strong text-text-default placeholder-text-muted focus:outline-none focus:ring-2 focus:ring-focus-ring focus:border-transparent text-sm"
               required
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-slate-700 mb-1.5">
+            <label className="block text-sm font-medium text-text-subtle mb-1.5">
               <div className="flex items-center gap-1.5">
                 <FileText className="w-4 h-4" />
                 متن خام گزارش
@@ -75,19 +75,19 @@ export default function AdminPage() {
               onChange={(e) => setRawText(e.target.value)}
               placeholder="متن گزارش روزانه گروه را اینجا Paste کنید..."
               rows={12}
-              className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm leading-relaxed resize-y"
+              className="w-full px-4 py-3 rounded-lg bg-surface-2 border border-border-strong text-text-default placeholder-text-muted focus:outline-none focus:ring-2 focus:ring-focus-ring focus:border-transparent text-sm leading-relaxed resize-y"
               required
             />
           </div>
 
           {error && (
-            <div className="bg-red-50 text-red-700 text-sm px-4 py-2.5 rounded-lg border border-red-200">
+            <div className="bg-danger-subtle text-danger text-sm px-4 py-2.5 rounded-lg border border-danger/20">
               {error}
             </div>
           )}
 
           {success && (
-            <div className="bg-green-50 text-green-700 text-sm px-4 py-2.5 rounded-lg border border-green-200 flex items-center gap-2">
+            <div className="bg-success-subtle text-success text-sm px-4 py-2.5 rounded-lg border border-success/20 flex items-center gap-2">
               <CheckCircle2 className="w-4 h-4" />
               گزارش با موفقیت ثبت شد و وارد صف تحلیل شد.
             </div>
@@ -96,7 +96,7 @@ export default function AdminPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white font-medium py-2.5 px-4 rounded-lg transition-colors text-sm"
+            className="w-full flex items-center justify-center gap-2 bg-action hover:bg-action-hover disabled:opacity-50 text-text-on-brand font-medium py-2.5 px-4 rounded-lg transition-colors text-sm"
           >
             <Send className="w-4 h-4" />
             {loading ? "در حال ثبت..." : "ثبت و ارسال به صف تحلیل"}

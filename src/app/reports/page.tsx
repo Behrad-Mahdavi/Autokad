@@ -32,31 +32,31 @@ export default function ReportsPage() {
   return (
     <div>
       <div className="flex items-center gap-3 mb-6">
-        <FileBarChart className="w-6 h-6 text-blue-600" />
-        <h2 className="text-xl font-bold text-slate-800">لیست گزارش‌ها</h2>
+        <FileBarChart className="w-6 h-6 text-action" />
+        <h2 className="text-xl font-bold text-text-default">لیست گزارش‌ها</h2>
       </div>
 
       {loading && (
-        <div className="bg-white rounded-xl border border-slate-200 p-12 text-center">
-          <Clock className="w-12 h-12 text-slate-300 mx-auto mb-3 animate-pulse" />
-          <p className="text-slate-500">در حال بارگذاری...</p>
+        <div className="bg-surface rounded-xl border border-border p-12 text-center">
+          <Clock className="w-12 h-12 text-text-muted mx-auto mb-3 animate-pulse" />
+          <p className="text-text-muted">در حال بارگذاری...</p>
         </div>
       )}
 
       {!loading && error && (
-        <div className="bg-white rounded-xl border border-red-200 p-12 text-center">
-          <AlertCircle className="w-12 h-12 text-red-300 mx-auto mb-3" />
-          <p className="text-red-500 text-sm">{error}</p>
+        <div className="bg-surface rounded-xl border border-danger/20 p-12 text-center">
+          <AlertCircle className="w-12 h-12 text-danger mx-auto mb-3" />
+          <p className="text-danger text-sm">{error}</p>
         </div>
       )}
 
       {!loading && !error && reports.length === 0 && (
-        <div className="bg-white rounded-xl border border-slate-200 p-12 text-center">
-          <Clock className="w-12 h-12 text-slate-300 mx-auto mb-3" />
-          <p className="text-slate-500">هنوز گزارشی ثبت نشده است.</p>
+        <div className="bg-surface rounded-xl border border-border p-12 text-center">
+          <Clock className="w-12 h-12 text-text-muted mx-auto mb-3" />
+          <p className="text-text-muted">هنوز گزارشی ثبت نشده است.</p>
           <Link
             href="/admin"
-            className="text-blue-600 hover:underline text-sm mt-2 inline-block"
+            className="text-action hover:underline text-sm mt-2 inline-block"
           >
             ثبت اولین گزارش
           </Link>
@@ -67,14 +67,14 @@ export default function ReportsPage() {
         <div className="grid gap-3">
           {reports.map((report) => (
             <Link key={report.id} href={`/reports/${report.report_date}`}>
-              <div className="bg-white rounded-xl border border-slate-200 p-5 hover:border-blue-300 hover:shadow-sm transition-all cursor-pointer flex items-center justify-between">
+              <div className="bg-surface rounded-xl border border-border p-5 hover:border-action/50 hover:shadow-sm transition-all cursor-pointer flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <FileBarChart className="w-5 h-5 text-slate-400" />
+                  <FileBarChart className="w-5 h-5 text-text-muted" />
                   <div>
-                    <p className="font-medium text-slate-800">
+                    <p className="font-medium text-text-default">
                       {report.report_date}
                     </p>
-                    <p className="text-xs text-slate-400 mt-0.5">
+                    <p className="text-xs text-text-muted mt-0.5">
                       {new Date(report.created_at).toLocaleDateString("fa-IR")}
                     </p>
                   </div>
@@ -83,8 +83,8 @@ export default function ReportsPage() {
                   variant={report.is_processed ? "default" : "secondary"}
                   className={
                     report.is_processed
-                      ? "bg-green-100 text-green-700 border-green-200"
-                      : "bg-yellow-100 text-yellow-700 border-yellow-200"
+                      ? "bg-success-subtle text-success border-success/30"
+                      : "bg-warning-subtle text-warning border-warning/30"
                   }
                 >
                   {report.is_processed ? (

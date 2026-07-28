@@ -2,11 +2,51 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@font-face { font-family: 'IRANSansX'; src: url('/fonts/IRANSansXFaNum-ThinD4.ttf') format('truetype'); font-weight: 100; }
+@font-face { font-family: 'IRANSansX'; src: url('/fonts/IRANSansXFaNum-UltraLightD4.ttf') format('truetype'); font-weight: 200; }
+@font-face { font-family: 'IRANSansX'; src: url('/fonts/IRANSansXFaNum-LightD4.ttf') format('truetype'); font-weight: 300; }
+@font-face { font-family: 'IRANSansX'; src: url('/fonts/IRANSansXFaNum-RegularD4.ttf') format('truetype'); font-weight: 400; }
+@font-face { font-family: 'IRANSansX'; src: url('/fonts/IRANSansXFaNum-MediumD4.ttf') format('truetype'); font-weight: 500; }
+@font-face { font-family: 'IRANSansX'; src: url('/fonts/IRANSansXFaNum-DemiBoldD4.ttf') format('truetype'); font-weight: 600; }
+@font-face { font-family: 'IRANSansX'; src: url('/fonts/IRANSansXFaNum-BoldD4.ttf') format('truetype'); font-weight: 700; }
+@font-face { font-family: 'IRANSansX'; src: url('/fonts/IRANSansXFaNum-ExtraBoldD4.ttf') format('truetype'); font-weight: 800; }
+@font-face { font-family: 'IRANSansX'; src: url('/fonts/IRANSansXFaNum-HeavyD4.ttf') format('truetype'); font-weight: 900; }
+@font-face { font-family: 'IRANSansX'; src: url('/fonts/IRANSansXFaNum-BlackD4.ttf') format('truetype'); font-weight: 900; }
+@font-face { font-family: 'IRANSansX'; src: url('/fonts/IRANSansXFaNum-ExtraBlackD4.ttf') format('truetype'); font-weight: 950; }
 
 :root {
-  --background: #f8fafc;
-  --foreground: #0f172a;
+  --color-canvas: #0b0d11;
+  --color-surface: #15171e;
+  --color-surface-2: #1d1f27;
+  --color-border: rgba(255, 255, 255, 0.06);
+  --color-border-strong: rgba(255, 255, 255, 0.12);
+
+  --color-text-default: #f0f1f5;
+  --color-text-subtle: #a0a2b0;
+  --color-text-muted: #6b6e7c;
+  --color-text-on-brand: #0b0d11;
+  --color-text-on-dark: #ffffff;
+
+  --color-action: #10b981;
+  --color-action-hover: #059669;
+  --color-action-active: #047857;
+  --color-action-subtle: rgba(16, 185, 129, 0.1);
+
+  --color-admin: #8b5cf6;
+  --color-admin-hover: #7c3aed;
+  --color-admin-subtle: rgba(139, 92, 246, 0.1);
+
+  --color-success: #14b8a6;
+  --color-success-subtle: rgba(20, 184, 166, 0.1);
+  --color-warning: #f59e0b;
+  --color-warning-subtle: rgba(245, 158, 11, 0.1);
+  --color-danger: #f43f5e;
+  --color-danger-hover: #e11d48;
+  --color-danger-subtle: rgba(244, 63, 94, 0.1);
+  --color-info: #6366f1;
+  --color-info-subtle: rgba(99, 102, 241, 0.1);
+
+  --color-focus-ring: #10b981;
 }
 
 * {
@@ -16,9 +56,9 @@
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: "Vazirmatn", sans-serif;
+  background: var(--color-canvas);
+  color: var(--color-text-default);
+  font-family: 'IRANSansX', system-ui, sans-serif;
   direction: rtl;
   text-align: right;
 }
@@ -26,5 +66,23 @@ body {
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 9999px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 255, 255, 0.25);
   }
 }

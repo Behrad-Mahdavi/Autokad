@@ -12,7 +12,7 @@ import {
   ShieldAlert,
 } from "lucide-react";
 
-interface StudentAnalysis {
+interface Student {
   name: string;
   productivity_score: number;
   status: "green" | "yellow" | "red";
@@ -34,7 +34,7 @@ interface VisualJson {
     avg_productivity: number;
   };
   red_flags: RedFlag[];
-  students: StudentAnalysis[];
+  students: Student[];
 }
 
 interface Report {
@@ -52,7 +52,9 @@ export default function ReportDetailPage() {
 
   useEffect(() => {
     if (!date) return;
-    fetch(`/api/reports/${encodeURIComponent(date)}?t=${Date.now()}`, { cache: "no-store" })
+    fetch(`/api/reports/${encodeURIComponent(date)}?t=${Date.now()}`, {
+      cache: "no-store",
+    })
       .then((res) => {
         if (!res.ok) throw new Error("گزارش یافت نشد");
         return res.json();
@@ -65,9 +67,9 @@ export default function ReportDetailPage() {
   if (loading) {
     return (
       <div className="max-w-xl mx-auto mt-16">
-        <div className="bg-white rounded-xl border border-slate-200 p-12 text-center shadow-sm">
-          <Clock className="w-16 h-16 text-slate-300 mx-auto mb-4 animate-pulse" />
-          <p className="text-slate-500">در حال بارگذاری گزارش...</p>
+        <div className="bg-surface rounded-xl border border-border p-12 text-center shadow-sm">
+          <Clock className="w-16 h-16 text-text-muted mx-auto mb-4 animate-pulse" />
+          <p className="text-text-muted">در حال بارگذاری گزارش...</p>
         </div>
       </div>
     );
@@ -76,9 +78,9 @@ export default function ReportDetailPage() {
   if (error || !report) {
     return (
       <div className="max-w-xl mx-auto mt-16">
-        <div className="bg-white rounded-xl border border-red-200 p-12 text-center shadow-sm">
-          <AlertTriangle className="w-16 h-16 text-red-300 mx-auto mb-4" />
-          <p className="text-red-500">{error || "گزارش یافت نشد"}</p>
+        <div className="bg-surface rounded-xl border border-danger/20 p-12 text-center shadow-sm">
+          <AlertTriangle className="w-16 h-16 text-danger mx-auto mb-4" />
+          <p className="text-danger">{error || "گزارش یافت نشد"}</p>
         </div>
       </div>
     );
@@ -87,12 +89,12 @@ export default function ReportDetailPage() {
   if (!report.is_processed || !report.visual_json) {
     return (
       <div className="max-w-xl mx-auto mt-16">
-        <div className="bg-white rounded-xl border border-slate-200 p-12 text-center shadow-sm">
-          <Clock className="w-16 h-16 text-yellow-400 mx-auto mb-4 animate-pulse" />
-          <h2 className="text-lg font-bold text-slate-800 mb-2">
+        <div className="bg-surface rounded-xl border border-border p-12 text-center shadow-sm">
+          <Clock className="w-16 h-16 text-warning mx-auto mb-4 animate-pulse" />
+          <h2 className="text-lg font-bold text-text-default mb-2">
             گزارش در حال پردازش است
           </h2>
-          <p className="text-slate-500 text-sm">
+          <p className="text-text-muted text-sm">
             گزارش تاریخ <span className="font-medium">{date}</span> هنوز توسط
             سرویس هرمس تحلیل نشده است. لطفاً بعداً مجدد بررسی کنید.
           </p>
@@ -104,21 +106,22 @@ export default function ReportDetailPage() {
   const { top_metrics, red_flags, students } = report.visual_json;
 
   const getScoreColor = (score: number) => {
-    if (score >= 7) return "text-green-600 bg-green-50 border-green-200";
-    if (score >= 4) return "text-yellow-600 bg-yellow-50 border-yellow-200";
-    return "text-red-600 bg-red-50 border-red-200";
+    if (score >= 7) return "text-success bg-success-subtle border-success/30";
+    if (score >= 4)
+      return "text-warning bg-warning-subtle border-warning/30";
+    return "text-danger bg-danger-subtle border-danger/30";
   };
 
   const getStatusBadge = (status: string) => {
     switch (status) {
       case "green":
-        return "bg-green-100 text-green-700 border-green-200";
+        return "bg-success-subtle text-success border-success/30";
       case "yellow":
-        return "bg-yellow-100 text-yellow-700 border-yellow-200";
+        return "bg-warning-subtle text-warning border-warning/30";
       case "red":
-        return "bg-red-100 text-red-700 border-red-200";
+        return "bg-danger-subtle text-danger border-danger/30";
       default:
-        return "bg-slate-100 text-slate-700 border-slate-200";
+        return "bg-surface-2 text-text-subtle border-border";
     }
   };
 
@@ -137,48 +140,46 @@ export default function ReportDetailPage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
-        <h2 className="text-xl font-bold text-slate-800">گزارش {date}</h2>
-      </div>
+      <h2 className="text-xl font-bold text-text-default">گزارش {date}</h2>
 
       {/* Top Metrics */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div className="bg-white rounded-xl border border-slate-200 p-5 shadow-sm">
+        <div className="bg-surface rounded-xl border border-border p-5 shadow-sm">
           <div className="flex items-center gap-3">
-            <div className="p-2.5 bg-blue-50 rounded-lg">
-              <Users className="w-5 h-5 text-blue-600" />
+            <div className="p-2.5 bg-action-subtle rounded-lg">
+              <Users className="w-5 h-5 text-action" />
             </div>
             <div>
-              <p className="text-2xl font-bold text-slate-800">
+              <p className="text-2xl font-bold text-text-default">
                 {top_metrics.total_students}
               </p>
-              <p className="text-xs text-slate-500">تعداد کل دانش‌آموزان</p>
+              <p className="text-xs text-text-muted">تعداد کل دانش‌آموزان</p>
             </div>
           </div>
         </div>
-        <div className="bg-white rounded-xl border border-slate-200 p-5 shadow-sm">
+        <div className="bg-surface rounded-xl border border-border p-5 shadow-sm">
           <div className="flex items-center gap-3">
-            <div className="p-2.5 bg-red-50 rounded-lg">
-              <AlertTriangle className="w-5 h-5 text-red-600" />
+            <div className="p-2.5 bg-danger-subtle rounded-lg">
+              <AlertTriangle className="w-5 h-5 text-danger" />
             </div>
             <div>
-              <p className="text-2xl font-bold text-slate-800">
+              <p className="text-2xl font-bold text-text-default">
                 {top_metrics.high_risk_count}
               </p>
-              <p className="text-xs text-slate-500">افراد در ریسک بالا</p>
+              <p className="text-xs text-text-muted">افراد در ریسک بالا</p>
             </div>
           </div>
         </div>
-        <div className="bg-white rounded-xl border border-slate-200 p-5 shadow-sm">
+        <div className="bg-surface rounded-xl border border-border p-5 shadow-sm">
           <div className="flex items-center gap-3">
-            <div className="p-2.5 bg-green-50 rounded-lg">
-              <TrendingUp className="w-5 h-5 text-green-600" />
+            <div className="p-2.5 bg-success-subtle rounded-lg">
+              <TrendingUp className="w-5 h-5 text-success" />
             </div>
             <div>
-              <p className="text-2xl font-bold text-slate-800">
+              <p className="text-2xl font-bold text-text-default">
                 {top_metrics.avg_productivity.toFixed(1)}
               </p>
-              <p className="text-xs text-slate-500">میانگین بهره‌وری</p>
+              <p className="text-xs text-text-muted">میانگین بهره‌وری</p>
             </div>
           </div>
         </div>
@@ -186,29 +187,31 @@ export default function ReportDetailPage() {
 
       {/* Red Flags */}
       {red_flags && red_flags.length > 0 && (
-        <div className="bg-red-50 rounded-xl border border-red-200 p-6">
+        <div className="bg-danger-subtle rounded-xl border border-danger/20 p-6">
           <div className="flex items-center gap-2 mb-4">
-            <ShieldAlert className="w-5 h-5 text-red-600" />
-            <h3 className="font-bold text-red-800">پرچم‌های قرمز</h3>
+            <ShieldAlert className="w-5 h-5 text-danger" />
+            <h3 className="font-bold text-danger">پرچم‌های قرمز</h3>
           </div>
           <div className="space-y-4">
             {red_flags.map((flag, i) => (
               <div
                 key={i}
-                className="bg-white rounded-lg border border-red-100 p-4"
+                className="bg-surface rounded-lg border border-danger/10 p-4"
               >
                 <div className="flex items-center gap-2 mb-2">
-                  <AlertTriangle className="w-4 h-4 text-red-500" />
-                  <span className="font-bold text-slate-800">{flag.name}</span>
+                  <AlertTriangle className="w-4 h-4 text-danger" />
+                  <span className="font-bold text-text-default">
+                    {flag.name}
+                  </span>
                 </div>
                 <ul className="space-y-1 mb-2 mr-6">
                   {flag.risk_reasons.map((reason, j) => (
-                    <li key={j} className="text-sm text-red-600 list-disc">
+                    <li key={j} className="text-sm text-danger list-disc">
                       {reason}
                     </li>
                   ))}
                 </ul>
-                <div className="bg-blue-50 text-blue-700 text-sm px-3 py-2 rounded-lg mr-6">
+                <div className="bg-admin-subtle text-admin text-sm px-3 py-2 rounded-lg mr-6">
                   <span className="font-medium">پیشنهاد منتور:</span>{" "}
                   {flag.mentor_suggestion}
                 </div>
@@ -219,41 +222,44 @@ export default function ReportDetailPage() {
       )}
 
       {/* Students Table */}
-      <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
-        <div className="px-6 py-4 border-b border-slate-200">
+      <div className="bg-surface rounded-xl border border-border shadow-sm overflow-hidden">
+        <div className="px-6 py-4 border-b border-border">
           <div className="flex items-center gap-2">
-            <Target className="w-5 h-5 text-blue-600" />
-            <h3 className="font-bold text-slate-800">تحلیل دانش‌آموزان</h3>
+            <Target className="w-5 h-5 text-action" />
+            <h3 className="font-bold text-text-default">تحلیل دانش‌آموزان</h3>
           </div>
         </div>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
-              <tr className="bg-slate-50 border-b border-slate-200">
-                <th className="px-4 py-3 text-right font-medium text-slate-600">
+              <tr className="bg-surface-2 border-b border-border">
+                <th className="px-4 py-3 text-right font-medium text-text-subtle">
                   نام
                 </th>
-                <th className="px-4 py-3 text-center font-medium text-slate-600">
+                <th className="px-4 py-3 text-center font-medium text-text-subtle">
                   نمره بهره‌وری
                 </th>
-                <th className="px-4 py-3 text-center font-medium text-slate-600">
+                <th className="px-4 py-3 text-center font-medium text-text-subtle">
                   وضعیت
                 </th>
-                <th className="px-4 py-3 text-right font-medium text-slate-600">
+                <th className="px-4 py-3 text-right font-medium text-text-subtle">
                   خلاصه دیروز
                 </th>
-                <th className="px-4 py-3 text-right font-medium text-slate-600">
+                <th className="px-4 py-3 text-right font-medium text-text-subtle">
                   برنامه امروز
                 </th>
-                <th className="px-4 py-3 text-right font-medium text-slate-600">
+                <th className="px-4 py-3 text-right font-medium text-text-subtle">
                   موانع
                 </th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-100">
+            <tbody className="divide-y divide-border">
               {students.map((student, i) => (
-                <tr key={i} className="hover:bg-slate-50 transition-colors">
-                  <td className="px-4 py-3 font-medium text-slate-800">
+                <tr
+                  key={i}
+                  className="hover:bg-surface-2 transition-colors"
+                >
+                  <td className="px-4 py-3 font-medium text-text-default">
                     {student.name}
                   </td>
                   <td className="px-4 py-3 text-center">
@@ -268,13 +274,13 @@ export default function ReportDetailPage() {
                       {getStatusLabel(student.status)}
                     </Badge>
                   </td>
-                  <td className="px-4 py-3 text-slate-600 text-xs leading-relaxed max-w-[200px]">
+                  <td className="px-4 py-3 text-text-subtle text-xs leading-relaxed max-w-[200px]">
                     {student.yesterday_summary}
                   </td>
-                  <td className="px-4 py-3 text-slate-600 text-xs leading-relaxed max-w-[200px]">
+                  <td className="px-4 py-3 text-text-subtle text-xs leading-relaxed max-w-[200px]">
                     {student.today_plan}
                   </td>
-                  <td className="px-4 py-3 text-slate-600 text-xs leading-relaxed max-w-[200px]">
+                  <td className="px-4 py-3 text-text-subtle text-xs leading-relaxed max-w-[200px]">
                     {student.obstacles}
                   </td>
                 </tr>
