@@ -1,0 +1,83 @@
+# لیست دانش‌آموزان و آدرس صفحات اختصاصی
+
+دامنه: https://autokad.vercel.app
+
+────────────────────────────────────────────────
+
+۱. تینا توسلی منش
+   https://autokad.vercel.app/students/تینا-توسلی-منش
+
+۲. سجاد حسینی
+   https://autokad.vercel.app/students/سجاد-حسینی
+
+۳. دیانا دهقان پور
+   https://autokad.vercel.app/students/دیانا-دهقان-پور
+
+۴. الیسا ولی زاده
+   https://autokad.vercel.app/students/الیسا-ولی-زاده
+
+۵. آرتین امیری
+   https://autokad.vercel.app/students/آرتین-امیری
+
+۶. ستاره صیاد
+   https://autokad.vercel.app/students/ستاره-صیاد
+
+۷. محمدرضا نبوی
+   https://autokad.vercel.app/students/محمدرضا-نبوی
+
+۸. محمد مهدی صادقی
+   https://autokad.vercel.app/students/محمد-مهدی-صادقی
+
+۹. مهدیار توکلی
+   https://autokad.vercel.app/students/مهدیار-توکلی
+
+۱۰. احسان پاکزاد
+    https://autokad.vercel.app/students/احسان-پاکزاد
+
+۱۱. بهار بذرافشان
+    https://autokad.vercel.app/students/بهار-بذرافشان
+
+۱۲. عسل کاظمی
+    https://autokad.vercel.app/students/عسل-کاظمی
+
+۱۳. امیرحسین صف‌شکن
+    https://autokad.vercel.app/students/امیرحسین-صف‌شکن
+
+۱۴. سهیل رحمانی
+    https://autokad.vercel.app/students/سهیل-رحمانی
+
+۱۵. ارسلان ابراهیمی
+    https://autokad.vercel.app/students/ارسلان-ابراهیمی
+
+۱۶. لنا اقبالی
+    https://autokad.vercel.app/students/لنا-اقبالی
+
+۱۷. ملیکا ترک
+    https://autokad.vercel.app/students/ملیکا-ترک
+
+۱۸. حسین خوش رفتار
+    https://autokad.vercel.app/students/حسین-خوش-رفتار
+
+۱۹. مهدیار حسن زاده
+    https://autokad.vercel.app/students/مهدیار-حسن-زاده
+
+۲۰. علیرضا محبوب
+    https://autokad.vercel.app/students/علیرضا-محبوب
+
+۲۱. سجاد خزاعی
+    https://autokad.vercel.app/students/سجاد-خزاعی
+
+۲۲. محمد جعفریان
+    https://autokad.vercel.app/students/محمد-جعفریان
+
+۲۳. متین رمضانی
+    https://autokad.vercel.app/students/متین-رمضانی
+
+۲۴. پارسا رحمانی
+    https://autokad.vercel.app/students/پارسا-رحمانی
+
+۲۵. متین کامل
+    https://autokad.vercel.app/students/متین-کامل
+
+۲۶. سروش حسنی
+    https://autokad.vercel.app/students/سروش-حسنی

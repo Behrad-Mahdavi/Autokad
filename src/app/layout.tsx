@@ -27,6 +27,12 @@ export default function RootLayout({
                 ثبت گزارش
               </a>
               <a
+                href="/students"
+                className="text-slate-600 hover:text-slate-900 transition-colors"
+              >
+                دانش‌آموزان
+              </a>
+              <a
                 href="/reports"
                 className="text-slate-600 hover:text-slate-900 transition-colors"
               >

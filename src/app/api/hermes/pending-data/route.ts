@@ -30,7 +30,7 @@ export async function GET(request: NextRequest) {
     .eq("is_processed", true)
     .order("report_date", { ascending: false })
     .limit(3);
-
+    
   return NextResponse.json({
     report_date: pending.report_date,
     raw_text: pending.raw_text,
