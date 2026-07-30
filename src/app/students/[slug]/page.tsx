@@ -294,26 +294,26 @@ export default function StudentDetailPage() {
                 </h3>
               </div>
             </div>
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm">
+            <div className="overflow-x-auto scrollbar-thin">
+              <table className="w-full text-sm min-w-[650px]">
                 <thead>
                   <tr className="bg-slate-50 border-b border-slate-200">
-                    <th className="px-4 py-3 text-right font-medium text-slate-600">
+                    <th className="px-3 py-3 text-right font-medium text-slate-600 whitespace-nowrap">
                       تاریخ
                     </th>
-                    <th className="px-4 py-3 text-center font-medium text-slate-600">
+                    <th className="px-3 py-3 text-center font-medium text-slate-600 whitespace-nowrap">
                       بهره‌وری
                     </th>
-                    <th className="px-4 py-3 text-center font-medium text-slate-600">
+                    <th className="px-3 py-3 text-center font-medium text-slate-600 whitespace-nowrap">
                       وضعیت
                     </th>
-                    <th className="px-4 py-3 text-right font-medium text-slate-600">
+                    <th className="px-3 py-3 text-right font-medium text-slate-600 whitespace-nowrap">
                       خلاصه دیروز
                     </th>
-                    <th className="px-4 py-3 text-right font-medium text-slate-600">
+                    <th className="px-3 py-3 text-right font-medium text-slate-600 whitespace-nowrap">
                       برنامه امروز
                     </th>
-                    <th className="px-4 py-3 text-right font-medium text-slate-600">
+                    <th className="px-3 py-3 text-right font-medium text-slate-600 whitespace-nowrap">
                       موانع
                     </th>
                   </tr>
@@ -324,7 +324,7 @@ export default function StudentDetailPage() {
                       key={i}
                       className="hover:bg-slate-50 transition-colors"
                     >
-                      <td className="px-4 py-3 font-medium text-slate-800">
+                      <td className="px-3 py-3 font-medium text-slate-800 whitespace-nowrap">
                         <Link
                           href={`/reports/${entry.report_date}`}
                           className="text-blue-600 hover:underline"
@@ -332,7 +332,7 @@ export default function StudentDetailPage() {
                           {entry.report_date}
                         </Link>
                       </td>
-                      <td className="px-4 py-3 text-center">
+                      <td className="px-3 py-3 text-center">
                         <span className="flex items-center justify-center gap-1">
                           <span
                             className={`inline-flex items-center justify-center w-7 h-7 rounded-full border text-xs font-bold ${
@@ -355,20 +355,20 @@ export default function StudentDetailPage() {
                           </div>
                         </span>
                       </td>
-                      <td className="px-4 py-3 text-center">
+                      <td className="px-3 py-3 text-center whitespace-nowrap">
                         <Badge
                           className={getStatusBadge(entry.status)}
                         >
                           {getStatusLabel(entry.status)}
                         </Badge>
                       </td>
-                      <td className="px-4 py-3 text-slate-600 text-xs leading-relaxed max-w-[180px]">
+                      <td className="px-3 py-3 text-slate-600 text-xs leading-relaxed whitespace-normal break-words min-w-[120px] max-w-[200px]">
                         {entry.yesterday_summary}
                       </td>
-                      <td className="px-4 py-3 text-slate-600 text-xs leading-relaxed max-w-[180px]">
+                      <td className="px-3 py-3 text-slate-600 text-xs leading-relaxed whitespace-normal break-words min-w-[120px] max-w-[200px]">
                         {entry.today_plan}
                       </td>
-                      <td className="px-4 py-3 text-xs leading-relaxed max-w-[150px]">
+                      <td className="px-3 py-3 text-xs leading-relaxed whitespace-normal break-words min-w-[120px] max-w-[200px]">
                         {entry.obstacles ? (
                           <span className="text-amber-600">
                             {entry.obstacles}

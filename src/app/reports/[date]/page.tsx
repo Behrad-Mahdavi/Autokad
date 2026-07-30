@@ -226,26 +226,26 @@ export default function ReportDetailPage() {
             <h3 className="font-bold text-slate-800">تحلیل دانش‌آموزان</h3>
           </div>
         </div>
-        <div className="overflow-x-auto">
-          <table className="w-full text-sm">
+        <div className="overflow-x-auto scrollbar-thin">
+          <table className="w-full text-sm min-w-[650px]">
             <thead>
               <tr className="bg-slate-50 border-b border-slate-200">
-                <th className="px-4 py-3 text-right font-medium text-slate-600">
+                <th className="px-3 py-3 text-right font-medium text-slate-600 whitespace-nowrap">
                   نام
                 </th>
-                <th className="px-4 py-3 text-center font-medium text-slate-600">
-                  نمره بهره‌وری
+                <th className="px-3 py-3 text-center font-medium text-slate-600 whitespace-nowrap">
+                  بهره‌وری
                 </th>
-                <th className="px-4 py-3 text-center font-medium text-slate-600">
+                <th className="px-3 py-3 text-center font-medium text-slate-600 whitespace-nowrap">
                   وضعیت
                 </th>
-                <th className="px-4 py-3 text-right font-medium text-slate-600">
+                <th className="px-3 py-3 text-right font-medium text-slate-600 whitespace-nowrap">
                   خلاصه دیروز
                 </th>
-                <th className="px-4 py-3 text-right font-medium text-slate-600">
+                <th className="px-3 py-3 text-right font-medium text-slate-600 whitespace-nowrap">
                   برنامه امروز
                 </th>
-                <th className="px-4 py-3 text-right font-medium text-slate-600">
+                <th className="px-3 py-3 text-right font-medium text-slate-600 whitespace-nowrap">
                   موانع
                 </th>
               </tr>
@@ -253,29 +253,29 @@ export default function ReportDetailPage() {
             <tbody className="divide-y divide-slate-100">
               {students.map((student, i) => (
                 <tr key={i} className="hover:bg-slate-50 transition-colors">
-                  <td className="px-4 py-3 font-medium text-slate-800">
+                  <td className="px-3 py-3 font-medium text-slate-800 whitespace-nowrap">
                     {student.name}
                   </td>
-                  <td className="px-4 py-3 text-center">
+                  <td className="px-3 py-3 text-center">
                     <span
                       className={`inline-flex items-center justify-center w-8 h-8 rounded-full border text-sm font-bold ${getScoreColor(student.productivity_score)}`}
                     >
                       {student.productivity_score}
                     </span>
                   </td>
-                  <td className="px-4 py-3 text-center">
+                  <td className="px-3 py-3 text-center whitespace-nowrap">
                     <Badge className={getStatusBadge(student.status)}>
                       {getStatusLabel(student.status)}
                     </Badge>
                   </td>
-                  <td className="px-4 py-3 text-slate-600 text-xs leading-relaxed max-w-[200px]">
+                  <td className="px-3 py-3 text-slate-600 text-xs leading-relaxed whitespace-normal break-words min-w-[120px] max-w-[200px]">
                     {student.yesterday_summary}
                   </td>
-                  <td className="px-4 py-3 text-slate-600 text-xs leading-relaxed max-w-[200px]">
+                  <td className="px-3 py-3 text-slate-600 text-xs leading-relaxed whitespace-normal break-words min-w-[120px] max-w-[200px]">
                     {student.today_plan}
                   </td>
-                  <td className="px-4 py-3 text-slate-600 text-xs leading-relaxed max-w-[200px]">
-                    {student.obstacles}
+                  <td className="px-3 py-3 text-slate-600 text-xs leading-relaxed whitespace-normal break-words min-w-[120px] max-w-[200px]">
+                    {student.obstacles || "—"}
                   </td>
                 </tr>
               ))}
