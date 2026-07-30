@@ -5,79 +5,79 @@
 ────────────────────────────────────────────────
 
 ۱. تینا توسلی منش
-   https://autokad.vercel.app/students/تینا-توسلی-منش
+   https://autokad.vercel.app/students/tina-tavassoli
 
 ۲. سجاد حسینی
-   https://autokad.vercel.app/students/سجاد-حسینی
+   https://autokad.vercel.app/students/sajjad-hosseini
 
 ۳. دیانا دهقان پور
-   https://autokad.vercel.app/students/دیانا-دهقان-پور
+   https://autokad.vercel.app/students/diana-dehghan
 
 ۴. الیسا ولی زاده
-   https://autokad.vercel.app/students/الیسا-ولی-زاده
+   https://autokad.vercel.app/students/elisa-valizadeh
 
 ۵. آرتین امیری
-   https://autokad.vercel.app/students/آرتین-امیری
+   https://autokad.vercel.app/students/artin-amiri
 
 ۶. ستاره صیاد
-   https://autokad.vercel.app/students/ستاره-صیاد
+   https://autokad.vercel.app/students/setareh-sayyad
 
 ۷. محمدرضا نبوی
-   https://autokad.vercel.app/students/محمدرضا-نبوی
+   https://autokad.vercel.app/students/mohammadreza-nabavi
 
 ۸. محمد مهدی صادقی
-   https://autokad.vercel.app/students/محمد-مهدی-صادقی
+   https://autokad.vercel.app/students/mohammad-mahdi-sadeghi
 
 ۹. مهدیار توکلی
-   https://autokad.vercel.app/students/مهدیار-توکلی
+   https://autokad.vercel.app/students/mahdiyar-tavakoli
 
 ۱۰. احسان پاکزاد
-    https://autokad.vercel.app/students/احسان-پاکزاد
+    https://autokad.vercel.app/students/ehsan-pakzad
 
 ۱۱. بهار بذرافشان
-    https://autokad.vercel.app/students/بهار-بذرافشان
+    https://autokad.vercel.app/students/bahar-bazrafshan
 
 ۱۲. عسل کاظمی
-    https://autokad.vercel.app/students/عسل-کاظمی
+    https://autokad.vercel.app/students/asal-kazemi
 
 ۱۳. امیرحسین صف‌شکن
-    https://autokad.vercel.app/students/امیرحسین-صف‌شکن
+    https://autokad.vercel.app/students/amirhossein-safshekan
 
 ۱۴. سهیل رحمانی
-    https://autokad.vercel.app/students/سهیل-رحمانی
+    https://autokad.vercel.app/students/soheil-rahmani
 
 ۱۵. ارسلان ابراهیمی
-    https://autokad.vercel.app/students/ارسلان-ابراهیمی
+    https://autokad.vercel.app/students/arsalan-ebrahimi
 
 ۱۶. لنا اقبالی
-    https://autokad.vercel.app/students/لنا-اقبالی
+    https://autokad.vercel.app/students/lena-ebali
 
 ۱۷. ملیکا ترک
-    https://autokad.vercel.app/students/ملیکا-ترک
+    https://autokad.vercel.app/students/melika-tork
 
 ۱۸. حسین خوش رفتار
-    https://autokad.vercel.app/students/حسین-خوش-رفتار
+    https://autokad.vercel.app/students/hossein-khoshraftar
 
 ۱۹. مهدیار حسن زاده
-    https://autokad.vercel.app/students/مهدیار-حسن-زاده
+    https://autokad.vercel.app/students/mahdiyar-hassanzadeh
 
 ۲۰. علیرضا محبوب
-    https://autokad.vercel.app/students/علیرضا-محبوب
+    https://autokad.vercel.app/students/alireza-mahboob
 
 ۲۱. سجاد خزاعی
-    https://autokad.vercel.app/students/سجاد-خزاعی
+    https://autokad.vercel.app/students/sajjad-khazaei
 
 ۲۲. محمد جعفریان
-    https://autokad.vercel.app/students/محمد-جعفریان
+    https://autokad.vercel.app/students/mohammad-jafarian
 
 ۲۳. متین رمضانی
-    https://autokad.vercel.app/students/متین-رمضانی
+    https://autokad.vercel.app/students/matin-ramezani
 
 ۲۴. پارسا رحمانی
-    https://autokad.vercel.app/students/پارسا-رحمانی
+    https://autokad.vercel.app/students/parsa-rahmani
 
 ۲۵. متین کامل
-    https://autokad.vercel.app/students/متین-کامل
+    https://autokad.vercel.app/students/matin-kamel
 
 ۲۶. سروش حسنی
-    https://autokad.vercel.app/students/سروش-حسنی
+    https://autokad.vercel.app/students/soroush-hasani
