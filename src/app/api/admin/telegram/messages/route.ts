@@ -27,7 +27,11 @@ export async function GET(request: NextRequest) {
           ? all.filter((m) => m.is_processed === false)
           : all;
 
-    const response = NextResponse.json({ messages: filtered });
+    const response = NextResponse.json({
+      version: "v2",
+      processed_param: processed ?? null,
+      messages: filtered,
+    });
     response.headers.set(
       "Cache-Control",
       "no-store, no-cache, must-revalidate, max-age=0"
