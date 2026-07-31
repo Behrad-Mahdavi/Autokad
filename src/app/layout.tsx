@@ -27,6 +27,12 @@ export default function RootLayout({
                 ثبت گزارش
               </a>
               <a
+                href="/admin/telegram"
+                className="text-slate-600 hover:text-slate-900 transition-colors"
+              >
+                تلگرام
+              </a>
+              <a
                 href="/students"
                 className="text-slate-600 hover:text-slate-900 transition-colors"
               >
