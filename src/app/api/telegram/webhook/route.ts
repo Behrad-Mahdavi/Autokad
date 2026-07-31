@@ -51,9 +51,9 @@ const RECEIVED_TEXT = `✅ <b>گزارش شما دریافت شد.</b>
 گزارش شما برای بازبینی ذخیره شد و در صورت تأیید، وارد چرخه‌ی تحلیل می‌شود.`;
 
 export async function POST(request: NextRequest) {
-  const secret = process.env.TELEGRAM_BOT_SECRET_TOKEN;
+  const secret = process.env.TELEGRAM_BOT_SECRET_TOKEN?.trim();
   if (secret) {
-    const header = request.headers.get("x-telegram-bot-api-secret-token");
+    const header = request.headers.get("x-telegram-bot-api-secret-token")?.trim();
     if (header !== secret) {
       return NextResponse.json({ ok: false }, { status: 401 });
     }
