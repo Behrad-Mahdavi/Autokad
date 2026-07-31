@@ -5,6 +5,9 @@ export const dynamic = "force-dynamic";
 
 const TELEGRAM_API = "https://api.telegram.org";
 
+const BOT_USERNAME = "autokad_report_bot";
+const BOT_TAG = `@${BOT_USERNAME}`;
+
 function getBotToken(): string {
   const token = process.env.TELEGRAM_BOT_TOKEN;
   if (!token) throw new Error("TELEGRAM_BOT_TOKEN is not set");
@@ -84,12 +87,30 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ ok: true });
     }
 
+    const normalized = text.trimStart();
+    if (!normalized.toLowerCase().startsWith(BOT_TAG.toLowerCase())) {
+      return NextResponse.json({ ok: true });
+    }
+
+    const reportText = normalized
+      .slice(BOT_TAG.length)
+      .replace(/^[\s:،:.]*/, "")
+      .trim();
+
+    if (!reportText) {
+      await sendTelegramMessage(
+        chatId,
+        "⚠️ لطفاً بعد از تگ ربات، متن گزارش را ارسال کنید."
+      );
+      return NextResponse.json({ ok: true });
+    }
+
     const supabase = getSupabase();
     const { error } = await supabase.from("telegram_messages").insert({
       chat_id: chatId,
       message_id: messageId,
       from_user: fromUser,
-      raw_text: text,
+      raw_text: reportText,
       received_at: new Date().toISOString(),
       is_processed: false,
     });
