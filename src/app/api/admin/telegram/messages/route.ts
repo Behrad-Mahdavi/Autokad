@@ -8,24 +8,26 @@ export async function GET(request: NextRequest) {
     const processed = request.nextUrl.searchParams.get("processed");
 
     const supabase = getSupabase();
-    let query = supabase.from("telegram_messages").select("*");
-
-    if (processed === "true") query = query.eq("is_processed", true);
-    else if (processed === "false") query = query.eq("is_processed", false);
-
-    const { data, error } = await query;
+    const { data, error } = await supabase.from("telegram_messages").select("*");
 
     if (error) {
       return NextResponse.json({ error: error.message }, { status: 500 });
     }
 
-    const sorted = (data || []).sort((a, b) => {
+    const all = (data || []).sort((a, b) => {
       const ta = new Date(a.received_at || 0).getTime();
       const tb = new Date(b.received_at || 0).getTime();
       return tb - ta;
     });
 
-    const response = NextResponse.json({ messages: sorted });
+    const filtered =
+      processed === "true"
+        ? all.filter((m) => m.is_processed === true)
+        : processed === "false"
+          ? all.filter((m) => m.is_processed === false)
+          : all;
+
+    const response = NextResponse.json({ messages: filtered });
     response.headers.set(
       "Cache-Control",
       "no-store, no-cache, must-revalidate, max-age=0"
