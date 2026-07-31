@@ -2,6 +2,7 @@ import { createClient, SupabaseClient } from "@supabase/supabase-js";
 
 let client: SupabaseClient | null = null;
 
+// Bypass Next.js global fetch cache for Supabase client
 export function getSupabase(): SupabaseClient {
   if (!client) {
     client = createClient(
